@@ -11,11 +11,21 @@ public class DayOfYear {
 		return (year%4 ==0 && year%100 !=0 || year % 400 ==0) ? 1:0;
 	}
 	static int dayOfYear(int y,int m,int d) {
+		/*
 		int days = d;
 		for(int i=1;i<m;++i) {//1~(M-1)월을 일수 더함
 			days+=mdays[isLeap(y)][i-1];
 		}
 		return days;
+		*/
+		//연습문제 8 : 변수 i 와 days없이 구현
+		int count =0;
+		int sum =0;
+		do{
+			sum+=mdays[isLeap(y)][count];
+			count++;
+		}while(count < m);
+		return sum;
 	}
 	public static void main(String[] args) {
 		//한해의 경과 일수 구하기
@@ -32,10 +42,21 @@ public class DayOfYear {
 			System.out.print("일 : "); int day = sc.nextInt();//년
 			System.out.printf("그 해 %d일째 입니다.\n",dayOfYear(year, month, day));
 			
-			System.out.print("한번 더 할까요? (1.예 / 0.아니요");
+			System.out.println(leftDayOfYear(year,month,day));
+			
+			System.out.print("한번 더 할까요? (1.예 / 0.아니요) : ");
+			
 			retry = sc.nextInt();
 		}while(retry == 1);
-		
+		//이차원 배여에 대한 복제는 최상위 1레벨만 수행(하위레벨의 배열은 복제가 안되고 공유)
+			
 	}
+	public static int leftDayOfYear(int y,int m,int d) {
+		// 연습문제 9 : y년 m월 d일의 그해 남은 일수를 구하는 메소드 작성 12월31일이면0
+		int lastDay = dayOfYear(y,12,31);
+		int currentDay = dayOfYear(y,m,d);
+		return lastDay - currentDay;
+	}
+	
 
 }
