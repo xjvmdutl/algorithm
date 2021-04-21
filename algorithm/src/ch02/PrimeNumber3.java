@@ -17,7 +17,7 @@ public class PrimeNumber3 {
 			for(int i=1;prime[i]*prime[i]<=n;++i) {
 				count+=2;
 				//prime[i]*prime[i]
-				//n%prime[i]
+				//n%prime[i] 
 				if(n%prime[i] ==0) {
 					flag =true; //더이상 반복 x
 					break;
