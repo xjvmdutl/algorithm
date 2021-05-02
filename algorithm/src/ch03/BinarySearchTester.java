@@ -29,11 +29,13 @@ public class BinarySearchTester {
 		int ky = sc.nextInt();
 		
 		int idx = Arrays.binarySearch(x, ky);//배열과 key값을 전달
-		if(idx < 0)
+		if(idx < 0) {
 			System.out.println("그 값의 요소가 없습니다.");
+			System.out.println(-(idx+1));//삽질포인터 // 연습문제 6: 삽질포인터 출력
+		}
 		else
 			System.out.println(ky+"은(는) x["+idx+"]에 있습니다.");
 	}
-	//클래스 메소드,인스턴스 메소드 : 클래스메소드(staticx), 인스턴스 메소드 (static o)
+	//클래스 메소드,인스턴스 메소드 : 클래스메소드(static x), 인스턴스 메소드 (static o)
 	
 }
