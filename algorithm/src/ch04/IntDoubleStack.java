@@ -1,5 +1,6 @@
 package ch04;
 public class IntDoubleStack {
+	//연습문제 3 : 양쪽으로 데이터를 입력받는 스택 구현
 	int max; //스택 용량
 	int ptrLeft; //스택 포인터
 	int ptrRight; //스택 포인터

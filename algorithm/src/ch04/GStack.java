@@ -1,5 +1,6 @@
 package ch04;
 public class GStack<T> {
+	//연습문제 2 : generic 타입을 stack구현
 	int max; //스택 용량
 	int ptr; //스택 포인터
 	T[] stk;//스텍의 본체

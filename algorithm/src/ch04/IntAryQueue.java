@@ -3,6 +3,7 @@ package ch04;
 //데이터를 넣는다 : 인큐 , 데이터를 꺼낸다 : 디큐, 데이터를 꺼내는쪽 : 프런트(front) , 데이터를 넣는쪽 : 리어(rear)
 //데이터를  디큐하게 될경우 요소를 앞으로 하나씩 옮겨야 한다.
 public class IntAryQueue {
+	//연습문제 4 : 큐를 데이터를 dequeue시 [0]인덱스를 리턴하고 한칸씩 앞으로 댕겨지는 queue 구현
 	private int max;//큐 용량
 	private int num;//현재 데이터 수
 	private int[] que;//큐 본채
@@ -53,6 +54,11 @@ public class IntAryQueue {
 	public int capacity() {
 		return max;
 	}
+	public int peek() throws EmptyIntAryQueueException{
+		if(num <= 0)
+			throw new EmptyIntAryQueueException();
+		return que[0];
+	}
 	public void dump() {
 		if(num<=0){//큐가 비어있음
 			System.out.println("큐가 비어 있습니다.");
@@ -78,4 +84,5 @@ public class IntAryQueue {
 	public boolean isFull() {
 		return num>=max;
 	}
+	
 }

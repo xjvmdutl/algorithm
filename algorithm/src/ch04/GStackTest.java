@@ -2,23 +2,24 @@ package ch04;
 
 import java.util.Scanner;
 
-public class IntStackTest {
+public class GStackTest {
 	//스택을 사용 예
 	public static void main(String[] args) {
 		
+		
 		Scanner sc = new Scanner(System.in);
-		IntStack s = new IntStack(64);//최대 64개를 push할수 있는 스택
+		GStack<String> s = new GStack(64);//최대 64개를 push할수 있는 스택
 		while(true) {
 			System.out.println("현재 데이터 수 : "+s.size() + " / "+ s.capacity());
 			System.out.print("(1) push (2) pop (3) peek (4)dump (5)IndexOf (6)clear (7)isEmpty (8)isFull (0) 종료 : ");//연습문제 1 : IntStack을 모드 메소드를 사용하는 프로그램 작성
 			int menu = sc.nextInt();
 			if(menu == 0)
 				break;
-			int x;
+			String x;
 			switch (menu) {
 			case 1 : 
 				System.out.print("데이터 : ");
-				x = sc.nextInt();
+				x = sc.next();
 				try {
 					s.push(x);
 				}catch (IntStack.OverflowIntStackException e) {
@@ -47,7 +48,7 @@ public class IntStackTest {
 			
 			case 5:// IndexOf 
 				System.out.print("찾을 데이터 : ");
-				x = sc.nextInt();
+				x = sc.next();
 				int i = s.IndexOf(x);
 				if(i==-1)
 					System.out.println("찾을 데이터가 stack에 존재하지 않습니다.");
